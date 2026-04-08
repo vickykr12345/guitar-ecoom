@@ -1,110 +1,102 @@
 /**
- * GLOBAL CART HELPER FUNCTIONS
+ * GLOBAL STATE HELPERS
  */
 function getCart() {
-    return JSON.parse(localStorage.getItem('gt-cart')) || [];
+    return JSON.parse(localStorage.getItem('cart')) || [];
 }
 
 function setCart(cart) {
-    localStorage.setItem('gt-cart', JSON.stringify(cart));
-}
-
-// Update only the navbar badge count
-function updateCartCount() {
-    const cart = getCart();
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    const badge = document.getElementById('cartCount');
-    if (badge) {
-        badge.innerText = totalItems;
-        // Optional: Hide badge if count is 0
-        badge.style.display = totalItems > 0 ? 'flex' : 'none';
-    }
-}
-
-/**
- * CART UI LOGIC
- */
-const getCartElements = () => ({
-    drawer: document.getElementById('cart-drawer'),
-    overlay: document.getElementById('cart-overlay'),
-    itemsContainer: document.getElementById('cart-items'),
-    subtotalEl: document.getElementById('cart-subtotal'),
-    totalEl: document.getElementById('cart-total'),
-    closeBtn: document.getElementById('close-cart')
-});
-
-function toggleCart(isOpen) {
-    const { drawer, overlay } = getCartElements();
-    if (!drawer || !overlay) return;
-
-    if (isOpen) {
-        drawer.classList.remove('translate-x-full');
-        overlay.classList.remove('hidden');
-        setTimeout(() => overlay.classList.add('opacity-100'), 10);
-        document.body.style.overflow = 'hidden';
-        renderCart(); // Refresh drawer content when opening
-    } else {
-        drawer.classList.add('translate-x-full');
-        overlay.classList.remove('opacity-100');
-        setTimeout(() => overlay.classList.add('hidden'), 500);
-        document.body.style.overflow = '';
-    }
-}
-
-function renderCart() {
-    const { itemsContainer, subtotalEl, totalEl } = getCartElements();
-    const cart = getCart();
-    
-    if (!itemsContainer) return;
-
-    if (cart.length === 0) {
-        itemsContainer.innerHTML = `
-            <div class="text-center py-20 text-white/40">
-                <i class="bi bi-cart-x text-5xl mb-4 block"></i>
-                <p>Your cart is empty</p>
-            </div>
-        `;
-        subtotalEl.innerText = '$0.00';
-        totalEl.innerText = '$0.00';
-        updateCartCount();
-        return;
-    }
-
-    let subtotal = 0;
-    itemsContainer.innerHTML = cart.map(item => {
-        const itemTotal = item.price * item.quantity;
-        subtotal += itemTotal;
-        return `
-            <div class="flex gap-4 group">
-                <div class="w-20 h-20 bg-white/5 rounded-xl overflow-hidden flex-shrink-0 border border-white/10">
-                    <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
-                </div>
-                <div class="flex-1 min-w-0">
-                    <h4 class="text-white font-bold text-sm truncate">${item.name}</h4>
-                    <p class="text-red-400 font-semibold text-xs mt-1">$${item.price.toLocaleString()}</p>
-                    <div class="flex items-center justify-between mt-3">
-                        <div class="flex items-center bg-white/5 rounded-full border border-white/10 px-2 py-1">
-                            <button onclick="updateItemQuantity('${item.id}', ${item.quantity - 1})" class="text-white/40 hover:text-white px-2 text-lg">-</button>
-                            <span class="text-white text-xs font-bold px-2">${item.quantity}</span>
-                            <button onclick="updateItemQuantity('${item.id}', ${item.quantity + 1})" class="text-white/40 hover:text-white px-2 text-lg">+</button>
-                        </div>
-                        <button onclick="removeCartItem('${item.id}')" class="text-white/20 hover:text-red-500 transition-colors">
-                            <i class="bi bi-trash3 text-sm"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="h-[1px] bg-white/5 my-4"></div>
-        `;
-    }).join('');
-
-    subtotalEl.innerText = `$${subtotal.toLocaleString()}`;
-    totalEl.innerText = `$${subtotal.toLocaleString()}`;
+    localStorage.setItem('cart', JSON.stringify(cart));
     updateCartCount();
 }
 
+function updateCartCount() {
+    const cart = getCart();
+    const total = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const badge = document.getElementById('cartCount');
+    if (badge) {
+        badge.innerText = total;
+        badge.style.display = total > 0 ? 'flex' : 'none';
+    }
+}
+
 /**
- * EXPOSED ACTIONS
+ * AUTH SYSTEM
+ */
+function checkUser() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    const authLinks = document.getElementById('authLinks');
+    const userLinks = document.getElementById('userLinks');
+    const userName = document.getElementById('userName');
+
+    if (user && authLinks && userLinks && userName) {
+        authLinks.classList.add('hidden');
+        userLinks.classList.remove('hidden');
+        userName.innerText = user.name;
+        userName.classList.remove('hidden');
+    }
+}
+
+window.logout = function() {
+    localStorage.removeItem('user');
+    location.reload();
+};
+
+/**
+ * UI CONTROLS (NAVBAR)
+ */
+function initNavbar() {
+    const searchBtn = document.getElementById('searchBtn');
+    const searchInput = document.getElementById('searchInput');
+    const userBtn = document.getElementById('userBtn');
+    const userMenu = document.getElementById('userMenu');
+
+    if (searchBtn && searchInput) {
+        searchBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            searchInput.classList.toggle('w-64');
+            searchInput.classList.toggle('px-4');
+            searchInput.classList.toggle('opacity-100');
+            if (searchInput.classList.contains('w-64')) {
+                searchInput.focus();
+            }
+        });
+
+        searchInput.addEventListener('input', () => {
+            const value = searchInput.value.toLowerCase();
+            document.querySelectorAll('.product-card').forEach(card => {
+                const name = (card.dataset.name || card.querySelector('h3')?.innerText || '').toLowerCase();
+                if (name.includes(value)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    }
+
+    if (userBtn && userMenu) {
+        userBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            userMenu.classList.toggle('hidden');
+        });
+    }
+
+    // Close on click outside
+    document.addEventListener('click', (e) => {
+        if (userMenu && !userMenu.contains(e.target) && !userBtn.contains(e.target)) {
+            userMenu.classList.add('hidden');
+        }
+        if (searchInput && !searchInput.contains(e.target) && !searchBtn.contains(e.target)) {
+            if (searchInput.value === '') {
+                searchInput.classList.remove('w-64', 'px-4', 'opacity-100');
+            }
+        }
+    });
+}
+
+/**
+ * ACTIONS
  */
 window.addToCart = function(product) {
     let cart = getCart();
@@ -115,30 +107,7 @@ window.addToCart = function(product) {
         cart.push({ ...product, quantity: 1 });
     }
     setCart(cart);
-    updateCartCount();
-    toggleCart(true);
     showToast(`Added ${product.name} to cart`);
-};
-
-window.updateItemQuantity = function(id, qty) {
-    let cart = getCart();
-    if (qty < 1) {
-        removeCartItem(id);
-        return;
-    }
-    const item = cart.find(item => item.id === id);
-    if (item) {
-        item.quantity = qty;
-        setCart(cart);
-        renderCart();
-    }
-};
-
-window.removeCartItem = function(id) {
-    let cart = getCart();
-    cart = cart.filter(item => item.id !== id);
-    setCart(cart);
-    renderCart();
 };
 
 function showToast(msg) {
@@ -153,33 +122,15 @@ function showToast(msg) {
 }
 
 /**
- * INITIALIZATION & SYNC
+ * INITIALIZATION
  */
-const initCart = () => {
+document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
-    // Also render drawer if it's already open for some reason
-    if (document.getElementById('cart-drawer') && !document.getElementById('cart-drawer').classList.contains('translate-x-full')) {
-        renderCart();
-    }
-};
-
-// Run on page load
-document.addEventListener('DOMContentLoaded', initCart);
-
-// Run when header is dynamically loaded
-document.addEventListener('headerLoaded', updateCartCount);
-
-// Sync across tabs
-window.addEventListener('storage', (e) => {
-    if (e.key === 'gt-cart') {
+    checkUser();
+    // Re-run after header load
+    document.addEventListener('headerLoaded', () => {
         updateCartCount();
-        renderCart();
-    }
-});
-
-// Global click handlers for cart UI
-document.addEventListener('click', (e) => {
-    if (e.target.closest('.cart-trigger')) toggleCart(true);
-    if (e.target.closest('#close-cart')) toggleCart(false);
-    if (e.target.closest('#cart-overlay')) toggleCart(false);
+        checkUser();
+        initNavbar();
+    });
 });
