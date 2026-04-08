@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;700;900&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bg-black text-white font-['Lexend'] overflow-x-hidden">
     <div id="header-placeholder"></div>
 
     <section class="relative min-h-[50vh] flex flex-col items-center justify-center text-center px-6 pt-20 overflow-hidden bg-black">
@@ -17,27 +17,23 @@
             <h1 class="text-6xl md:text-8xl font-['Syncopate'] font-bold mb-6 tracking-tighter leading-none">THE <span class="text-transparent" style="-webkit-text-stroke: 1px #fff;">VAULT</span></h1>
             <p class="text-white/50 text-xl max-w-2xl mx-auto">Your journey to perfect tone starts here. Explore our flagship models.</p>
         </div>
-        <!-- Background Gradient -->
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(220,38,38,0.1),transparent_70%)]"></div>
     </section>
 
     <!-- Shop Content Section -->
     <section class="relative bg-black py-20 px-6 lg:px-12 overflow-hidden">
-        <!-- Extra Premium Touch: Soft Red Glows -->
         <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-red-900/10 blur-[120px] rounded-full z-0"></div>
         <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-red-900/10 blur-[120px] rounded-full z-0"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto">
-            <!-- Section Header -->
             <div class="mb-12">
                 <div class="flex items-center gap-3">
                     <h2 class="text-white text-3xl md:text-4xl font-semibold">Best Prices</h2>
                     <div class="w-2 h-2 rounded-full bg-red-500 mt-2"></div>
                 </div>
-                <p class="text-gray-400 mt-3 max-w-xl">Premium instruments for professional artists. Explore our curated collections across all categories.</p>
+                <p class="text-gray-400 mt-3 max-w-xl">Premium instruments for professional artists. Explore our curated collections.</p>
             </div>
 
-            <!-- Category Tabs -->
             <div class="flex flex-wrap items-center gap-3 mb-12">
                 <button class="tab-btn px-6 py-2.5 bg-red-500 text-white rounded-full text-sm font-medium transition-all duration-300 shadow-lg shadow-red-500/20" data-category="electric">Electric</button>
                 <button class="tab-btn px-6 py-2.5 bg-white/5 backdrop-blur-md border border-white/10 text-gray-300 rounded-full text-sm font-medium hover:bg-white/10 transition-all duration-300" data-category="acoustic">Acoustic</button>
@@ -46,7 +42,6 @@
                 <button class="tab-btn px-6 py-2.5 bg-white/5 backdrop-blur-md border border-white/10 text-gray-300 rounded-full text-sm font-medium hover:bg-white/10 transition-all duration-300" data-category="all">All</button>
             </div>
 
-            <!-- Product Grid -->
             <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Product Card 1 -->
                 <div class="product-card group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-5 transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:shadow-red-500/10" data-category="electric">
@@ -59,14 +54,9 @@
                     <div class="flex flex-col gap-4 mt-auto">
                         <div class="flex items-center justify-between">
                             <span class="text-red-400 font-semibold text-xl">$3,499</span>
-                            <div class="flex items-center gap-1">
-                                <i class="bi bi-star-fill text-red-500 text-[10px]"></i>
-                                <span class="text-white text-[10px] font-bold">4.9</span>
-                            </div>
+                            <div class="flex items-center gap-1"><i class="bi bi-star-fill text-red-500 text-[10px]"></i><span class="text-white text-[10px] font-bold">4.9</span></div>
                         </div>
-                        <button class="w-full bg-red-500 text-white py-2.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-600 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/30">
-                            Add to Cart
-                        </button>
+                        <button onclick="addToCart({id: 'obsidian-strat', name: 'The Obsidian Strat', price: 3499, image: 'https://images.unsplash.com/photo-1550291652-6ea9114a47b1?auto=format&fit=crop&q=80'})" class="w-full bg-red-500 text-white py-2.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-600 transition-all duration-300">Add to Cart</button>
                     </div>
                 </div>
 
@@ -81,14 +71,9 @@
                     <div class="flex flex-col gap-4 mt-auto">
                         <div class="flex items-center justify-between">
                             <span class="text-red-400 font-semibold text-xl">$2,999</span>
-                            <div class="flex items-center gap-1">
-                                <i class="bi bi-star-fill text-red-500 text-[10px]"></i>
-                                <span class="text-white text-[10px] font-bold">4.8</span>
-                            </div>
+                            <div class="flex items-center gap-1"><i class="bi bi-star-fill text-red-500 text-[10px]"></i><span class="text-white text-[10px] font-bold">4.8</span></div>
                         </div>
-                        <button class="w-full bg-red-500 text-white py-2.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-600 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/30">
-                            Add to Cart
-                        </button>
+                        <button onclick="addToCart({id: 'solar-flare', name: 'Solar Flare Flame', price: 2999, image: 'https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&q=80'})" class="w-full bg-red-500 text-white py-2.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-600 transition-all duration-300">Add to Cart</button>
                     </div>
                 </div>
 
@@ -102,14 +87,9 @@
                     <div class="flex flex-col gap-4 mt-auto">
                         <div class="flex items-center justify-between">
                             <span class="text-red-400 font-semibold text-xl">$3,899</span>
-                            <div class="flex items-center gap-1">
-                                <i class="bi bi-star-fill text-red-500 text-[10px]"></i>
-                                <span class="text-white text-[10px] font-bold">5.0</span>
-                            </div>
+                            <div class="flex items-center gap-1"><i class="bi bi-star-fill text-red-500 text-[10px]"></i><span class="text-white text-[10px] font-bold">5.0</span></div>
                         </div>
-                        <button class="w-full bg-red-500 text-white py-2.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-600 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/30">
-                            Add to Cart
-                        </button>
+                        <button onclick="addToCart({id: 'vintage-amber', name: 'Vintage Amber LP', price: 3899, image: 'https://images.unsplash.com/photo-1516924962500-2b4b3b99ea02?auto=format&fit=crop&q=80'})" class="w-full bg-red-500 text-white py-2.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-600 transition-all duration-300">Add to Cart</button>
                     </div>
                 </div>
 
@@ -124,65 +104,27 @@
                     <div class="flex flex-col gap-4 mt-auto">
                         <div class="flex items-center justify-between">
                             <span class="text-red-400 font-semibold text-xl">$5,200</span>
-                            <div class="flex items-center gap-1">
-                                <i class="bi bi-star-fill text-red-500 text-[10px]"></i>
-                                <span class="text-white text-[10px] font-bold">4.9</span>
-                            </div>
+                            <div class="flex items-center gap-1"><i class="bi bi-star-fill text-red-500 text-[10px]"></i><span class="text-white text-[10px] font-bold">4.9</span></div>
                         </div>
-                        <button class="w-full bg-red-500 text-white py-2.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-600 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/30">
-                            Add to Cart
-                        </button>
+                        <button onclick="addToCart({id: 'celestial-acoustic', name: 'Celestial Acoustic', price: 5200, image: 'https://images.unsplash.com/photo-1525201548942-d8b8967d0f5c?auto=format&fit=crop&q=80'})" class="w-full bg-red-500 text-white py-2.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-600 transition-all duration-300">Add to Cart</button>
+                    </div>
                 </div>
 
-                <!-- Product Card 5 (Drums) -->
+                <!-- Product Card 5 -->
                 <div class="product-card group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-5 transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:shadow-red-500/10 hidden opacity-0 scale-95" data-category="drums">
                     <div class="relative aspect-[4/5] overflow-hidden rounded-xl mb-6 bg-gradient-to-tr from-red-500/5 to-transparent flex items-center justify-center">
                         <div class="absolute inset-0 bg-red-500/5 blur-3xl rounded-full scale-75 group-hover:scale-110 transition-transform duration-700"></div>
                         <img src="https://images.unsplash.com/photo-1543443374-b6fe10a6ab7b?auto=format&fit=crop&q=80" alt="Neon Beat Kit" class="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute top-3 right-3 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider">New</div>
                     </div>
                     <h3 class="text-white font-medium text-lg mb-1">Neon Beat Kit</h3>
                     <div class="flex flex-col gap-4 mt-auto">
                         <div class="flex items-center justify-between">
                             <span class="text-red-400 font-semibold text-xl">$4,200</span>
-                            <div class="flex items-center gap-1">
-                                <i class="bi bi-star-fill text-red-500 text-[10px]"></i>
-                                <span class="text-white text-[10px] font-bold">4.7</span>
-                            </div>
+                            <div class="flex items-center gap-1"><i class="bi bi-star-fill text-red-500 text-[10px]"></i><span class="text-white text-[10px] font-bold">4.7</span></div>
                         </div>
-                        <button class="w-full bg-red-500 text-white py-2.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-600 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/30">
-                            Add to Cart
-                        </button>
+                        <button onclick="addToCart({id: 'neon-beat', name: 'Neon Beat Kit', price: 4200, image: 'https://images.unsplash.com/photo-1543443374-b6fe10a6ab7b?auto=format&fit=crop&q=80'})" class="w-full bg-red-500 text-white py-2.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-600 transition-all duration-300">Add to Cart</button>
                     </div>
                 </div>
-
-                <!-- Product Card 6 (Orchestral) -->
-                <div class="product-card group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-5 transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:shadow-red-500/10 hidden opacity-0 scale-95" data-category="orchestral">
-                    <div class="relative aspect-[4/5] overflow-hidden rounded-xl mb-6 bg-gradient-to-tr from-red-500/5 to-transparent flex items-center justify-center">
-                        <div class="absolute inset-0 bg-red-500/5 blur-3xl rounded-full scale-75 group-hover:scale-110 transition-transform duration-700"></div>
-                        <img src="https://images.unsplash.com/photo-1612225215414-936934301b4d?auto=format&fit=crop&q=80" alt="Shadow Cello" class="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    </div>
-                    <h3 class="text-white font-medium text-lg mb-1">Shadow Cello</h3>
-                    <div class="flex flex-col gap-4 mt-auto">
-                        <div class="flex items-center justify-between">
-                            <span class="text-red-400 font-semibold text-xl">$5,800</span>
-                            <div class="flex items-center gap-1">
-                                <i class="bi bi-star-fill text-red-500 text-[10px]"></i>
-                                <span class="text-white text-[10px] font-bold">5.0</span>
-                            </div>
-                        </div>
-                        <button class="w-full bg-red-500 text-white py-2.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-600 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/30">
-                            Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Bottom CTA -->
-            <div class="mt-16 text-center">
-                <button class="bg-red-500 text-white px-8 py-3 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-red-600 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/40">
-                    Explore All Instruments
-                </button>
             </div>
         </div>
     </section>
@@ -190,43 +132,31 @@
     <footer class="footer" id="footer-placeholder"></footer>
 
     <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const tabs = document.querySelectorAll('.tab-btn');
             const products = document.querySelectorAll('.product-card');
-
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     const category = tab.dataset.category;
-
-                    // Update active tab styles
                     tabs.forEach(t => {
                         t.classList.remove('bg-red-500', 'text-white', 'shadow-lg', 'shadow-red-500/20');
-                        t.classList.add('bg-white/5', 'text-gray-300', 'border-white/10');
+                        t.classList.add('bg-white/5', 'text-gray-300');
                     });
                     tab.classList.add('bg-red-500', 'text-white', 'shadow-lg', 'shadow-red-500/20');
-                    tab.classList.remove('bg-white/5', 'text-gray-300', 'border-white/10');
-
-                    // Filter products with animation
+                    tab.classList.remove('bg-white/5', 'text-gray-300');
                     products.forEach(product => {
-                        product.classList.add('transition-all', 'duration-500');
-                        
                         if (category === 'all' || product.dataset.category === category) {
                             product.classList.remove('hidden');
-                            setTimeout(() => {
-                                product.classList.remove('opacity-0', 'scale-95');
-                            }, 10);
+                            setTimeout(() => product.classList.remove('opacity-0', 'scale-95'), 10);
                         } else {
                             product.classList.add('opacity-0', 'scale-95');
-                            setTimeout(() => {
-                                product.classList.add('hidden');
-                            }, 500);
+                            setTimeout(() => product.classList.add('hidden'), 500);
                         }
                     });
                 });
             });
-
-            // Set default view (Electric)
             const defaultTab = document.querySelector('.tab-btn[data-category="electric"]');
             if (defaultTab) defaultTab.click();
         });

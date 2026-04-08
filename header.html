@@ -16,6 +16,10 @@
     <div class="flex items-center justify-end gap-6">
         <div class="hidden sm:flex items-center gap-4 text-white/60">
             <i class="bi bi-search cursor-pointer hover:text-white transition-colors"></i>
+            <div class="relative cart-trigger cursor-pointer group">
+                <i class="bi bi-cart3 text-xl group-hover:text-white transition-colors"></i>
+                <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+            </div>
             <i class="bi bi-person cursor-pointer hover:text-white transition-colors"></i>
         </div>
         <button class="bg-white text-black px-6 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider hover:bg-[#ff2d55] hover:text-white transition-all duration-300 shadow-md whitespace-nowrap">
@@ -23,3 +27,41 @@
         </button>
     </div>
 </nav>
+
+<!-- Cart Drawer -->
+<div id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[380px] bg-black/95 backdrop-blur-xl border-l border-white/10 z-[100] translate-x-full transition-transform duration-500 flex flex-col shadow-2xl">
+    <!-- Header -->
+    <div class="p-6 border-b border-white/10 flex items-center justify-between">
+        <h2 class="text-white text-xl font-bold font-['Syncopate'] uppercase tracking-tight">Your Cart</h2>
+        <button id="close-cart" class="text-white/60 hover:text-white transition-colors">
+            <i class="bi bi-x-lg text-xl"></i>
+        </button>
+    </div>
+
+    <!-- Cart Items -->
+    <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-6">
+        <!-- Items will be rendered here -->
+        <div class="text-center py-20 text-white/40">
+            <i class="bi bi-cart-x text-5xl mb-4 block"></i>
+            <p>Your cart is empty</p>
+        </div>
+    </div>
+
+    <!-- Footer Summary -->
+    <div class="p-6 border-t border-white/10 space-y-4">
+        <div class="flex justify-between text-gray-400 text-sm">
+            <span>Subtotal</span>
+            <span id="cart-subtotal">$0.00</span>
+        </div>
+        <div class="flex justify-between text-white font-bold text-lg">
+            <span>Total</span>
+            <span id="cart-total" class="text-red-500">$0.00</span>
+        </div>
+        <a href="checkout.html" class="block w-full bg-red-500 hover:bg-red-600 text-white text-center py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-red-500/20 mt-4">
+            Proceed to Checkout
+        </a>
+    </div>
+</div>
+
+<!-- Overlay -->
+<div id="cart-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[99] hidden opacity-0 transition-opacity duration-500"></div>
