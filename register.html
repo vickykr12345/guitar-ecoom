@@ -2,62 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register | StringTheory Guitars</title>
+    <title>Contact Us | StringTheory</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;700;900&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-black text-white font-['Lexend'] overflow-x-hidden">
-    <div id="header-placeholder"></div>
-
-    <section class="min-h-screen flex items-center justify-center px-6 py-20 bg-black">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(220,38,38,0.1),transparent_70%)]"></div>
-        
-        <div class="relative w-full max-w-md bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-[2.5rem] shadow-2xl">
-            <div class="text-center mb-10">
-                <h1 class="text-4xl font-bold font-['Syncopate'] uppercase tracking-tight mb-2">Join</h1>
-                <p class="text-gray-500 text-sm">Become a part of the StringTheory tribe.</p>
-            </div>
-
-            <form id="registerForm" class="space-y-6">
-                <div class="space-y-2">
-                    <label class="text-[10px] uppercase tracking-widest text-gray-500 font-bold ml-1">Full Name</label>
-                    <input type="text" id="regName" required class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-red-500 transition-all text-white placeholder:text-white/10" placeholder="Jimi Hendrix">
-                </div>
-                <div class="space-y-2">
-                    <label class="text-[10px] uppercase tracking-widest text-gray-500 font-bold ml-1">Email Address</label>
-                    <input type="email" id="regEmail" required class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-red-500 transition-all text-white placeholder:text-white/10" placeholder="your@email.com">
-                </div>
-                <div class="space-y-2">
-                    <label class="text-[10px] uppercase tracking-widest text-gray-500 font-bold ml-1">Password</label>
-                    <input type="password" id="regPass" required class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-red-500 transition-all text-white placeholder:text-white/10" placeholder="••••••••">
-                </div>
-
-                <button type="submit" class="w-full bg-red-500 hover:bg-red-600 text-white py-4 rounded-2xl font-bold uppercase tracking-widest text-sm transition-all hover:scale-[1.02] shadow-lg shadow-red-500/20">
-                    Create Account
-                </button>
-            </form>
-
-            <div class="mt-10 text-center text-sm">
-                <p class="text-gray-500">Already a member? <a href="login.html" class="text-white font-bold hover:text-red-500 transition-colors">Sign in</a></p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer" id="footer-placeholder"></footer>
-
-    <script src="js/script.js"></script>
-    <script src="js/cart.js"></script>
-    <script>
-        document.getElementById('registerForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('regName').value;
-            const email = document.getElementById('regEmail').value;
-            localStorage.setItem('user', JSON.stringify({ name: name, email: email }));
-            window.location.href = 'index.html';
-        });
-    </script>
+<body class="bg-black text-white">
+    <div id="navbar"></div>
+    <section class="py-32 text-center"><h1 class="text-6xl font-bold">CONTACT US</h1></section>
+    <div id="footer"></div>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/ui.js"></script>
 </body>
 </html>
