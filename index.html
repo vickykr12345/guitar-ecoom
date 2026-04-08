@@ -147,63 +147,121 @@
         </div>
     </section>
 
-    <section id="shop" class="shop">
-        <h2 class="section-title">The <span>Vault</span></h2>
-        <div class="swiper shop-carousel">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide product-card">
-                    <div class="product-badge">Limited</div>
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1550291652-6ea9114a47b1?auto=format&fit=crop&w=600&q=80');"></div>
-                    <h3>The Obsidian Strat</h3>
-                    <p>Matte black finish, EMG active pickups.</p>
-                    <div class="price">$3,499</div>
-                    <button class="btn-buy">Add to Cart</button>
+    <!-- The Vault Section (Redesigned with Tab Filtering) -->
+    <section id="shop" class="relative bg-black py-20 px-6 lg:px-12 overflow-hidden">
+        <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-red-900/10 blur-[120px] rounded-full z-0"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-white text-4xl md:text-5xl font-bold font-['Syncopate'] mb-4">THE <span class="text-red-500">VAULT</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Handpicked masterpieces for the uncompromising artist.</p>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="flex flex-wrap justify-center items-center gap-3 mb-12">
+                <button class="tab-btn px-8 py-3 bg-red-500 text-white rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-lg shadow-red-500/20" data-category="electric">Electric</button>
+                <button class="tab-btn px-8 py-3 bg-white/5 backdrop-blur-md border border-white/10 text-gray-400 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all duration-300" data-category="acoustic">Acoustic</button>
+                <button class="tab-btn px-8 py-3 bg-white/5 backdrop-blur-md border border-white/10 text-gray-400 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all duration-300" data-category="all">All</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="index-product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Product Card 1 -->
+                <div class="product-card group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:shadow-red-500/10" data-category="electric">
+                    <div class="relative aspect-square overflow-hidden rounded-xl mb-8 bg-gradient-to-tr from-red-500/5 to-transparent flex items-center justify-center">
+                        <div class="absolute inset-0 bg-red-500/5 blur-3xl rounded-full scale-75 group-hover:scale-110 transition-transform duration-700"></div>
+                        <img src="https://images.unsplash.com/photo-1550291652-6ea9114a47b1?auto=format&fit=crop&q=80" alt="The Obsidian Strat" class="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute top-4 left-4 bg-red-500 text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest">Limited</div>
+                    </div>
+                    <h3 class="text-white text-xl font-bold mb-2">The Obsidian Strat</h3>
+                    <p class="text-gray-400 text-sm mb-6">Matte black finish, EMG active pickups for pure aggression.</p>
+                    <div class="flex items-center justify-between border-t border-white/10 pt-6">
+                        <span class="text-red-500 font-bold text-2xl">$3,499</span>
+                        <button class="bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all duration-300">
+                            Add to Cart
+                        </button>
+                    </div>
                 </div>
-                <div class="swiper-slide product-card">
-                    <div class="product-badge">New</div>
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&w=600&q=80');"></div>
-                    <h3>Solar Flare Flame</h3>
-                    <p>AAA Flame maple top, Floyd Rose system.</p>
-                    <div class="price">$2,999</div>
-                    <button class="btn-buy">Add to Cart</button>
+
+                <!-- Product Card 2 -->
+                <div class="product-card group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:shadow-red-500/10" data-category="electric">
+                    <div class="relative aspect-square overflow-hidden rounded-xl mb-8 bg-gradient-to-tr from-red-500/5 to-transparent flex items-center justify-center">
+                        <div class="absolute inset-0 bg-red-500/5 blur-3xl rounded-full scale-75 group-hover:scale-110 transition-transform duration-700"></div>
+                        <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&q=80" alt="Solar Flare Flame" class="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute top-4 left-4 bg-red-500 text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest">New</div>
+                    </div>
+                    <h3 class="text-white text-xl font-bold mb-2">Solar Flare Flame</h3>
+                    <p class="text-gray-400 text-sm mb-6">AAA Flame maple top with a custom Floyd Rose system.</p>
+                    <div class="flex items-center justify-between border-t border-white/10 pt-6">
+                        <span class="text-red-500 font-bold text-2xl">$2,999</span>
+                        <button class="bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all duration-300">
+                            Add to Cart
+                        </button>
+                    </div>
                 </div>
-                <div class="swiper-slide product-card">
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1516924962500-2b4b3b99ea02?auto=format&fit=crop&w=600&q=80');"></div>
-                    <h3>Vintage Amber LP</h3>
-                    <p>Chambered mahogany, custom wound humbuckers.</p>
-                    <div class="price">$3,899</div>
-                    <button class="btn-buy">Add to Cart</button>
-                </div>
-                <div class="swiper-slide product-card">
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1525201548942-d8b8967d0f5c?auto=format&fit=crop&w=600&q=80');"></div>
-                    <h3>Celestial Acoustic</h3>
-                    <p>Solid spruce top, Carbon fiber bracing.</p>
-                    <div class="price">$5,200</div>
-                    <button class="btn-buy">Add to Cart</button>
-                </div>
-                <div class="swiper-slide product-card">
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=600&q=80');"></div>
-                    <h3>Midnight Sea P</h3>
-                    <p>Deep blue finish, active Piezo bridge.</p>
-                    <div class="price">$2,799</div>
-                    <button class="btn-buy">Add to Cart</button>
-                </div>
-                <div class="swiper-slide product-card">
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1588611135245-c49513364273?auto=format&fit=crop&w=600&q=80');"></div>
-                    <h3>Titanium J</h3>
-                    <p>Titanium neck, Aerospace-grade carbon body.</p>
-                    <div class="price">$6,500</div>
-                    <button class="btn-buy">Add to Cart</button>
+
+                <!-- Product Card 3 -->
+                <div class="product-card group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:shadow-red-500/10" data-category="acoustic">
+                    <div class="relative aspect-square overflow-hidden rounded-xl mb-8 bg-gradient-to-tr from-red-500/5 to-transparent flex items-center justify-center">
+                        <div class="absolute inset-0 bg-red-500/5 blur-3xl rounded-full scale-75 group-hover:scale-110 transition-transform duration-700"></div>
+                        <img src="https://images.unsplash.com/photo-1525201548942-d8b8967d0f5c?auto=format&fit=crop&q=80" alt="Celestial Acoustic" class="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <h3 class="text-white text-xl font-bold mb-2">Celestial Acoustic</h3>
+                    <p class="text-gray-400 text-sm mb-6">Solid spruce top with revolutionary carbon fiber bracing.</p>
+                    <div class="flex items-center justify-between border-t border-white/10 pt-6">
+                        <span class="text-red-500 font-bold text-2xl">$5,200</span>
+                        <button class="bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all duration-300">
+                            Add to Cart
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
-        <div class="text-center mt-4">
-            <a href="shop.html" class="btn outline-btn">View All Models</a>
+
+            <div class="text-center mt-16">
+                <a href="shop.html" class="inline-block px-10 py-4 border border-white/10 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-all duration-300">View All Models</a>
+            </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const products = document.querySelectorAll('.product-card');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const category = tab.dataset.category;
+
+                    tabs.forEach(t => {
+                        t.classList.remove('bg-red-500', 'text-white', 'shadow-lg', 'shadow-red-500/20');
+                        t.classList.add('bg-white/5', 'text-gray-400', 'border-white/10');
+                    });
+                    tab.classList.add('bg-red-500', 'text-white', 'shadow-lg', 'shadow-red-500/20');
+                    tab.classList.remove('bg-white/5', 'text-gray-400', 'border-white/10');
+
+                    products.forEach(product => {
+                        product.classList.add('transition-all', 'duration-500');
+                        if (category === 'all' || product.dataset.category === category) {
+                            product.classList.remove('hidden');
+                            setTimeout(() => {
+                                product.classList.remove('opacity-0', 'scale-95');
+                            }, 10);
+                        } else {
+                            product.classList.add('opacity-0', 'scale-95');
+                            setTimeout(() => {
+                                product.classList.add('hidden');
+                            }, 500);
+                        }
+                    });
+                });
+            });
+
+            // Set default view (Electric)
+            const defaultTab = document.querySelector('.tab-btn[data-category="electric"]');
+            if (defaultTab) defaultTab.click();
+        });
+    </script>
 
     <section id="vision" class="vision">
         <div class="vision-overlay"></div>
