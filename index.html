@@ -43,8 +43,89 @@
         </div>
     </section>
 
-    <!-- The Vault Section -->
-    <section id="shop" class="relative bg-black py-20 px-6 lg:px-12 overflow-hidden">
+    <!-- Blog / News Section -->
+    <section id="news" class="relative bg-black py-24 px-6 lg:px-12 overflow-hidden">
+        <div class="absolute top-1/2 left-0 w-[400px] h-[400px] bg-red-900/5 blur-[120px] rounded-full z-0"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="max-w-xl">
+                    <h2 class="text-white text-4xl md:text-5xl font-bold font-['Syncopate'] mb-4 uppercase tracking-tight">Sonic <span class="text-red-500">Stories</span></h2>
+                    <p class="text-gray-400">Inside the workshop, on the stage, and through the amplifiers. Stay updated with StringTheory.</p>
+                </div>
+                <a href="#" class="text-red-400 font-bold uppercase tracking-widest text-xs hover:text-white transition-colors flex items-center gap-2 mb-2 group">
+                    View All Articles <i class="bi bi-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Asymmetric Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Type 1: Large Horizontal Card -->
+                <div class="lg:col-span-2 group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-[2rem] overflow-hidden flex flex-col md:flex-row transition-all duration-500 hover:scale-[1.01] hover:shadow-2xl hover:shadow-red-500/10">
+                    <div class="md:w-2/5 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&q=80" alt="Master Builder" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8 md:p-12 md:w-3/5 flex flex-col justify-center">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Masterclass</span>
+                            <div class="flex items-center gap-2 text-gray-500 text-xs uppercase tracking-widest font-bold">
+                                <i class="bi bi-calendar3"></i> April 05, 2026
+                            </div>
+                        </div>
+                        <h3 class="text-white text-2xl md:text-4xl font-bold mb-6 group-hover:text-red-400 transition-colors cursor-pointer leading-tight">The Physics of Tone: How Wood Density Affects Your Sound</h3>
+                        <p class="text-gray-400 mb-8 leading-relaxed">Go deep into the science behind tonewood selection. Why does certain mahogany provide more warmth than others? Our master builders explain the molecular structure of tone.</p>
+                        <div class="flex items-center justify-between mt-auto pt-6 border-t border-white/5">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center font-bold text-xs">E</div>
+                                <span class="text-white text-xs font-bold uppercase tracking-widest">Elias Thorne</span>
+                            </div>
+                            <a href="#" class="text-red-400 font-bold uppercase tracking-widest text-[10px] hover:underline flex items-center gap-2">Read Full Story <i class="bi bi-chevron-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Type 3: Standard Card -->
+                <div class="group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-[2rem] overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-500/10">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1445985543470-41fba5c3144a?auto=format&fit=crop&q=80" alt="New Gear" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-red-400 text-[10px] font-bold uppercase tracking-widest">Hardware</span>
+                            <span class="text-gray-500 text-[10px] uppercase tracking-widest">8 Min Read</span>
+                        </div>
+                        <h3 class="text-white text-xl font-bold mb-4 group-hover:text-red-400 transition-colors">Revolutionizing Sustainability: Lab-Grown Fretboards</h3>
+                        <p class="text-gray-400 text-sm mb-6">Can we achieve the same feel as ebony without the environmental impact? We test the latest carbon-composite materials.</p>
+                        <a href="#" class="text-white/40 hover:text-red-400 transition-colors text-xs font-bold uppercase tracking-widest flex items-center gap-2">Read More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Type 2: Image-Only Card (with Overlay) -->
+                <div class="group relative bg-white/5 border border-white/10 rounded-[2rem] overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-red-500/10 h-full min-h-[400px]">
+                    <img src="https://images.unsplash.com/photo-1598124838123-0186cb057735?auto=format&fit=crop&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end">
+                        <span class="bg-red-500 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest self-start mb-4">Live Event</span>
+                        <h3 class="text-white text-2xl font-bold mb-2 leading-tight">StringTheory at NAMM 2026: What to Expect</h3>
+                        <p class="text-gray-400 text-sm mb-6">Join us for a first look at the 2026 Obsidian Series.</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full border-2 border-red-500 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p class="text-white text-xs font-bold uppercase tracking-widest">Sarah Jenkins</p>
+                                <p class="text-gray-500 text-[10px]">Head of Product</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
         <div class="relative z-10 max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-white text-4xl md:text-5xl font-bold font-['Syncopate'] mb-4">THE <span class="text-red-500">VAULT</span></h2>
