@@ -152,6 +152,7 @@
             const container = document.getElementById('checkout-items');
             const subtotalEl = document.getElementById('summary-subtotal');
             const totalEl = document.getElementById('summary-total');
+            const cart = getCart();
             
             if (!container) return;
 
@@ -186,6 +187,7 @@
         async function placeOrder() {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
+            const cart = getCart();
             
             if (!name || !email) {
                 alert('Please fill in the required fields.');
@@ -204,8 +206,7 @@
 
             setTimeout(() => {
                 alert(`Thank you, ${name}! Your order has been placed successfully.`);
-                cart = [];
-                localStorage.removeItem('gt-cart');
+                setCart([]);
                 window.location.href = 'index.html';
             }, 2000);
         }

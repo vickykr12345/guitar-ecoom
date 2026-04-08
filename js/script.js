@@ -16,6 +16,8 @@ async function loadComponent(id, file) {
         if (id === 'header-placeholder') {
             el.outerHTML = `<header id="header-main">${html}</header>`;
             initHeaderScroll();
+            // Dispatch event so other scripts know header is ready
+            document.dispatchEvent(new CustomEvent('headerLoaded'));
         } else {
             el.innerHTML = html;
         }

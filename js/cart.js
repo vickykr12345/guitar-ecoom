@@ -1,21 +1,40 @@
-// Cart State
-let cart = JSON.parse(localStorage.getItem('gt-cart')) || [];
+/**
+ * GLOBAL CART HELPER FUNCTIONS
+ */
+function getCart() {
+    return JSON.parse(localStorage.getItem('gt-cart')) || [];
+}
 
-// UI Elements
-const getElements = () => ({
+function setCart(cart) {
+    localStorage.setItem('gt-cart', JSON.stringify(cart));
+}
+
+// Update only the navbar badge count
+function updateCartCount() {
+    const cart = getCart();
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const badge = document.getElementById('cartCount');
+    if (badge) {
+        badge.innerText = totalItems;
+        // Optional: Hide badge if count is 0
+        badge.style.display = totalItems > 0 ? 'flex' : 'none';
+    }
+}
+
+/**
+ * CART UI LOGIC
+ */
+const getCartElements = () => ({
     drawer: document.getElementById('cart-drawer'),
     overlay: document.getElementById('cart-overlay'),
-    countBadge: document.getElementById('cart-count'),
     itemsContainer: document.getElementById('cart-items'),
     subtotalEl: document.getElementById('cart-subtotal'),
     totalEl: document.getElementById('cart-total'),
-    triggers: document.querySelectorAll('.cart-trigger'),
     closeBtn: document.getElementById('close-cart')
 });
 
-// Toggle Cart Drawer
 function toggleCart(isOpen) {
-    const { drawer, overlay } = getElements();
+    const { drawer, overlay } = getCartElements();
     if (!drawer || !overlay) return;
 
     if (isOpen) {
@@ -23,6 +42,7 @@ function toggleCart(isOpen) {
         overlay.classList.remove('hidden');
         setTimeout(() => overlay.classList.add('opacity-100'), 10);
         document.body.style.overflow = 'hidden';
+        renderCart(); // Refresh drawer content when opening
     } else {
         drawer.classList.add('translate-x-full');
         overlay.classList.remove('opacity-100');
@@ -31,9 +51,10 @@ function toggleCart(isOpen) {
     }
 }
 
-// Render Cart Items
 function renderCart() {
-    const { itemsContainer, countBadge, subtotalEl, totalEl } = getElements();
+    const { itemsContainer, subtotalEl, totalEl } = getCartElements();
+    const cart = getCart();
+    
     if (!itemsContainer) return;
 
     if (cart.length === 0) {
@@ -43,9 +64,9 @@ function renderCart() {
                 <p>Your cart is empty</p>
             </div>
         `;
-        countBadge.innerText = '0';
         subtotalEl.innerText = '$0.00';
         totalEl.innerText = '$0.00';
+        updateCartCount();
         return;
     }
 
@@ -63,11 +84,11 @@ function renderCart() {
                     <p class="text-red-400 font-semibold text-xs mt-1">$${item.price.toLocaleString()}</p>
                     <div class="flex items-center justify-between mt-3">
                         <div class="flex items-center bg-white/5 rounded-full border border-white/10 px-2 py-1">
-                            <button onclick="updateQuantity('${item.id}', ${item.quantity - 1})" class="text-white/40 hover:text-white px-2 text-lg">-</button>
+                            <button onclick="updateItemQuantity('${item.id}', ${item.quantity - 1})" class="text-white/40 hover:text-white px-2 text-lg">-</button>
                             <span class="text-white text-xs font-bold px-2">${item.quantity}</span>
-                            <button onclick="updateQuantity('${item.id}', ${item.quantity + 1})" class="text-white/40 hover:text-white px-2 text-lg">+</button>
+                            <button onclick="updateItemQuantity('${item.id}', ${item.quantity + 1})" class="text-white/40 hover:text-white px-2 text-lg">+</button>
                         </div>
-                        <button onclick="removeItem('${item.id}')" class="text-white/20 hover:text-red-500 transition-colors">
+                        <button onclick="removeCartItem('${item.id}')" class="text-white/20 hover:text-red-500 transition-colors">
                             <i class="bi bi-trash3 text-sm"></i>
                         </button>
                     </div>
@@ -77,45 +98,48 @@ function renderCart() {
         `;
     }).join('');
 
-    countBadge.innerText = cart.reduce((acc, item) => acc + item.quantity, 0);
     subtotalEl.innerText = `$${subtotal.toLocaleString()}`;
     totalEl.innerText = `$${subtotal.toLocaleString()}`;
+    updateCartCount();
 }
 
-// Actions
+/**
+ * EXPOSED ACTIONS
+ */
 window.addToCart = function(product) {
+    let cart = getCart();
     const existing = cart.find(item => item.id === product.id);
     if (existing) {
         existing.quantity += 1;
     } else {
         cart.push({ ...product, quantity: 1 });
     }
-    saveCart();
+    setCart(cart);
+    updateCartCount();
     toggleCart(true);
     showToast(`Added ${product.name} to cart`);
 };
 
-window.updateQuantity = function(id, qty) {
+window.updateItemQuantity = function(id, qty) {
+    let cart = getCart();
     if (qty < 1) {
-        removeItem(id);
+        removeCartItem(id);
         return;
     }
     const item = cart.find(item => item.id === id);
     if (item) {
         item.quantity = qty;
-        saveCart();
+        setCart(cart);
+        renderCart();
     }
 };
 
-window.removeItem = function(id) {
+window.removeCartItem = function(id) {
+    let cart = getCart();
     cart = cart.filter(item => item.id !== id);
-    saveCart();
-};
-
-function saveCart() {
-    localStorage.setItem('gt-cart', JSON.stringify(cart));
+    setCart(cart);
     renderCart();
-}
+};
 
 function showToast(msg) {
     const toast = document.createElement('div');
@@ -128,16 +152,34 @@ function showToast(msg) {
     }, 3000);
 }
 
-// Initialize
-document.addEventListener('DOMContentLoaded', () => {
-    const els = getElements();
-    
-    // Add Event Listeners for trigger (re-check after header load)
-    document.addEventListener('click', (e) => {
-        if (e.target.closest('.cart-trigger')) toggleCart(true);
-        if (e.target.closest('#close-cart')) toggleCart(false);
-        if (e.target.closest('#cart-overlay')) toggleCart(false);
-    });
+/**
+ * INITIALIZATION & SYNC
+ */
+const initCart = () => {
+    updateCartCount();
+    // Also render drawer if it's already open for some reason
+    if (document.getElementById('cart-drawer') && !document.getElementById('cart-drawer').classList.contains('translate-x-full')) {
+        renderCart();
+    }
+};
 
-    renderCart();
+// Run on page load
+document.addEventListener('DOMContentLoaded', initCart);
+
+// Run when header is dynamically loaded
+document.addEventListener('headerLoaded', updateCartCount);
+
+// Sync across tabs
+window.addEventListener('storage', (e) => {
+    if (e.key === 'gt-cart') {
+        updateCartCount();
+        renderCart();
+    }
+});
+
+// Global click handlers for cart UI
+document.addEventListener('click', (e) => {
+    if (e.target.closest('.cart-trigger')) toggleCart(true);
+    if (e.target.closest('#close-cart')) toggleCart(false);
+    if (e.target.closest('#cart-overlay')) toggleCart(false);
 });
