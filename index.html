@@ -4,280 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StringTheory | Premium Custom Guitars</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,700;1,700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-[#050505] text-white overflow-x-hidden">
-    <div id="header-placeholder"></div>
+    <div id="navbar"></div>
 
     <!-- Hero Section -->
     <section id="home" class="relative min-h-screen flex items-center px-6 lg:px-20 overflow-hidden bg-black">
-        <!-- Background Layer: Gradient and Effects -->
         <div class="absolute inset-0 z-0">
-            <!-- Deep Black to Dark Red Gradient -->
             <div class="absolute inset-0 bg-gradient-to-br from-black via-black to-[#450a0a] opacity-80"></div>
-            
-            <!-- Radial Glow behind text -->
             <div class="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-900/20 blur-[120px] rounded-full"></div>
-            
-            <!-- Right-side visual balance: Subtle Glow / Guitar Silhouette -->
             <div class="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-red-600/10 blur-[150px] rounded-full"></div>
             <div class="absolute right-0 top-0 h-full w-1/2 bg-[url('https://images.unsplash.com/photo-1550291652-6ea9114a47b1?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-20 mix-blend-luminosity lg:opacity-30 mask-linear-to-l"></div>
-            
-            <!-- Vignette -->
             <div class="absolute inset-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.8)]"></div>
         </div>
 
-        <!-- Content Layer -->
         <div class="relative z-10 max-w-4xl pt-32 lg:pt-40 animate-fade-in-up">
             <h1 class="flex flex-col leading-[0.9] lg:leading-[0.8] tracking-tighter">
-                <span class="text-white text-5xl md:text-7xl lg:text-8xl font-bold font-['Syncopate'] uppercase">
-                    Unleash Your
-                </span>
-                <span class="text-transparent text-5xl md:text-7xl lg:text-8xl font-bold font-['Syncopate'] uppercase tracking-wide" 
-                      style="-webkit-text-stroke: 1px rgba(255,255,255,0.6);">
-                    Sonic Soul
-                </span>
+                <span class="text-white text-5xl md:text-7xl lg:text-8xl font-bold font-['Syncopate'] uppercase">Unleash Your</span>
+                <span class="text-transparent text-5xl md:text-7xl lg:text-8xl font-bold font-['Syncopate'] uppercase tracking-wide" style="-webkit-text-stroke: 1px rgba(255,255,255,0.6);">Sonic Soul</span>
             </h1>
-            
-            <p class="mt-8 text-gray-400 text-lg md:text-xl max-w-xl leading-relaxed font-light">
-                Handcrafted electric guitars for the modern virtuoso. <br class="hidden md:block">
-                Precision, passion, and pure tone.
-            </p>
-
+            <p class="mt-8 text-gray-400 text-lg md:text-xl max-w-xl leading-relaxed font-light">Handcrafted electric guitars for the modern virtuoso. <br class="hidden md:block">Precision, passion, and pure tone.</p>
             <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 mt-12">
-                <!-- Primary Button -->
-                <a href="shop.html" class="group relative px-8 py-4 bg-red-500 text-white rounded-full font-bold uppercase tracking-widest text-sm transition-all duration-300 hover:bg-red-600 hover:scale-105 shadow-[0_0_20px_rgba(239,68,68,0.3)] hover:shadow-[0_0_30px_rgba(239,68,68,0.5)]">
-                    Explore Series
-                </a>
-                
-                <!-- Secondary Button -->
-                <a href="#" class="px-8 py-4 bg-white/5 backdrop-blur-md border border-white/10 text-white rounded-full font-bold uppercase tracking-widest text-sm transition-all duration-300 hover:bg-white/10">
-                    Hear the Tone
-                </a>
+                <a href="shop.html" class="group relative px-8 py-4 bg-red-500 text-white rounded-full font-bold uppercase tracking-widest text-sm transition-all duration-300 hover:bg-red-600 hover:scale-105 shadow-[0_0_20px_rgba(239,68,68,0.3)] hover:shadow-[0_0_30px_rgba(239,68,68,0.5)]">Explore Series</a>
+                <a href="#" class="px-8 py-4 bg-white/5 backdrop-blur-md border border-white/10 text-white rounded-full font-bold uppercase tracking-widest text-sm transition-all duration-300 hover:bg-white/10">Hear the Tone</a>
             </div>
-            
-            <!-- Bottom indicators / stats (Subtle) -->
             <div class="mt-20 flex gap-12 border-l border-white/10 pl-8">
-                <div>
-                    <p class="text-xs uppercase tracking-widest text-white/40 mb-1">Crafted In</p>
-                    <p class="text-sm font-bold">Nashville, TN</p>
-                </div>
-                <div>
-                    <p class="text-xs uppercase tracking-widest text-white/40 mb-1">Response</p>
-                    <p class="text-sm font-bold">~0.1ms</p>
-                </div>
+                <div><p class="text-xs uppercase tracking-widest text-white/40 mb-1">Crafted In</p><p class="text-sm font-bold">Nashville, TN</p></div>
+                <div><p class="text-xs uppercase tracking-widest text-white/40 mb-1">Response</p><p class="text-sm font-bold">~0.1ms</p></div>
             </div>
         </div>
-
-        <!-- Scroll Indicator -->
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30 animate-bounce">
             <span class="text-[10px] uppercase tracking-[0.3em] font-bold">Scroll</span>
             <div class="w-[1px] h-12 bg-gradient-to-b from-white to-transparent"></div>
         </div>
     </section>
 
-    <style>
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in-up {
-            animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        }
-        .mask-linear-to-l {
-            mask-image: linear-gradient(to left, black 20%, transparent 80%);
-            -webkit-mask-image: linear-gradient(to left, black 20%, transparent 80%);
-        }
-    </style>
-
-    <section id="about" class="about">
-        <div class="about-container glass-card">
-            <div class="about-image" style="background-image: url('https://images.unsplash.com/photo-1541336032412-2048a678540d?auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="about-text">
-                <h2 class="section-title text-left">Crafting <span>Legacies</span></h2>
-                <p>Born in a small garage in 2010, StringTheory was founded with a single mission: to build instruments that don't just make sound, but tell stories. Each guitar is a masterpiece of engineering and art.</p>
-                <div class="stats">
-                    <div class="stat-item">
-                        <h3 class="counter" data-target="15">0</h3>
-                        <p>Years of Craft</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3 class="counter" data-target="10000">0</h3>
-                        <p>Guitars Built</p>
-                    </div>
-                </div>
-                <a href="about.html" class="btn text-btn">Read our Story <i class="bi bi-arrow-right"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <section id="brands" class="brands">
-        <h2 class="section-title">Global <span>Partners</span></h2>
-        <div class="swiper brands-carousel">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide brand-item glass-card">
-                    <i class="bi bi-music-note-beamed"></i>
-                    <span>Marshall</span>
-                </div>
-                <div class="swiper-slide brand-item glass-card">
-                    <i class="bi bi-speaker"></i>
-                    <span>Fender</span>
-                </div>
-                <div class="swiper-slide brand-item glass-card">
-                    <i class="bi bi-soundwave"></i>
-                    <span>Gibson</span>
-                </div>
-                <div class="swiper-slide brand-item glass-card">
-                    <i class="bi bi-vinyl"></i>
-                    <span>Ibanez</span>
-                </div>
-                <div class="swiper-slide brand-item glass-card">
-                    <i class="bi bi-mic"></i>
-                    <span>Orange</span>
-                </div>
-                <div class="swiper-slide brand-item glass-card">
-                    <i class="bi bi-headphones"></i>
-                    <span>Boss</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Vault Section (Redesigned with Tab Filtering) -->
+    <!-- The Vault Section -->
     <section id="shop" class="relative bg-black py-20 px-6 lg:px-12 overflow-hidden">
-        <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-red-900/10 blur-[120px] rounded-full z-0"></div>
-
         <div class="relative z-10 max-w-7xl mx-auto">
-            <!-- Section Header -->
             <div class="text-center mb-16">
                 <h2 class="text-white text-4xl md:text-5xl font-bold font-['Syncopate'] mb-4">THE <span class="text-red-500">VAULT</span></h2>
                 <p class="text-gray-400 max-w-2xl mx-auto">Handpicked masterpieces for the uncompromising artist.</p>
             </div>
-
-            <!-- Category Tabs -->
             <div class="flex flex-wrap justify-center items-center gap-3 mb-12">
-                <button class="tab-btn px-8 py-3 bg-red-500 text-white rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-lg shadow-red-500/20" data-category="electric">Electric</button>
-                <button class="tab-btn px-8 py-3 bg-white/5 backdrop-blur-md border border-white/10 text-gray-400 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all duration-300" data-category="acoustic">Acoustic</button>
-                <button class="tab-btn px-8 py-3 bg-white/5 backdrop-blur-md border border-white/10 text-gray-400 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all duration-300" data-category="all">All</button>
+                <button class="tab-btn px-8 py-3 bg-red-500 text-white rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300" data-category="electric">Electric</button>
+                <button class="tab-btn px-8 py-3 bg-white/5 border border-white/10 text-gray-400 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300" data-category="acoustic">Acoustic</button>
+                <button class="tab-btn px-8 py-3 bg-white/5 border border-white/10 text-gray-400 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300" data-category="all">All</button>
             </div>
-
-            <!-- Product Grid -->
             <div id="index-product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- Product Card 1 -->
-                <div class="product-card group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:shadow-red-500/10" data-category="electric">
+                <!-- Products will be rendered or filtered here -->
+                <div class="product-card group relative bg-white/5 border border-white/10 rounded-2xl p-6 transition-all duration-500 hover:scale-[1.03]" data-category="electric" data-name="The Obsidian Strat">
                     <div class="relative aspect-square overflow-hidden rounded-xl mb-8 bg-gradient-to-tr from-red-500/5 to-transparent flex items-center justify-center">
-                        <div class="absolute inset-0 bg-red-500/5 blur-3xl rounded-full scale-75 group-hover:scale-110 transition-transform duration-700"></div>
-                        <img src="https://images.unsplash.com/photo-1550291652-6ea9114a47b1?auto=format&fit=crop&q=80" alt="The Obsidian Strat" class="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute top-4 left-4 bg-red-500 text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest">Limited</div>
+                        <img src="https://images.unsplash.com/photo-1550291652-6ea9114a47b1?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
                     <h3 class="text-white text-xl font-bold mb-2">The Obsidian Strat</h3>
-                    <p class="text-gray-400 text-sm mb-6">Matte black finish, EMG active pickups for pure aggression.</p>
                     <div class="flex items-center justify-between border-t border-white/10 pt-6">
                         <span class="text-red-500 font-bold text-2xl">$3,499</span>
-                        <button onclick="addToCart({id: 'obsidian-strat', name: 'The Obsidian Strat', price: 3499, image: 'https://images.unsplash.com/photo-1550291652-6ea9114a47b1?auto=format&fit=crop&q=80'})" class="bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all duration-300">
-                            Add to Cart
-                        </button>
+                        <button onclick="addToCart({id: 'obsidian-strat', name: 'The Obsidian Strat', price: 3499, image: 'https://images.unsplash.com/photo-1550291652-6ea9114a47b1?auto=format&fit=crop&q=80'})" class="bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all">Add to Cart</button>
                     </div>
                 </div>
-
-                <!-- Product Card 2 -->
-                <div class="product-card group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:shadow-red-500/10" data-category="electric">
+                <!-- Card 2 -->
+                <div class="product-card group relative bg-white/5 border border-white/10 rounded-2xl p-6 transition-all duration-500 hover:scale-[1.03]" data-category="electric" data-name="Solar Flare Flame">
                     <div class="relative aspect-square overflow-hidden rounded-xl mb-8 bg-gradient-to-tr from-red-500/5 to-transparent flex items-center justify-center">
-                        <div class="absolute inset-0 bg-red-500/5 blur-3xl rounded-full scale-75 group-hover:scale-110 transition-transform duration-700"></div>
-                        <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&q=80" alt="Solar Flare Flame" class="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute top-4 left-4 bg-red-500 text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest">New</div>
+                        <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
                     <h3 class="text-white text-xl font-bold mb-2">Solar Flare Flame</h3>
-                    <p class="text-gray-400 text-sm mb-6">AAA Flame maple top with a custom Floyd Rose system.</p>
                     <div class="flex items-center justify-between border-t border-white/10 pt-6">
                         <span class="text-red-500 font-bold text-2xl">$2,999</span>
-                        <button onclick="addToCart({id: 'solar-flare', name: 'Solar Flare Flame', price: 2999, image: 'https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&q=80'})" class="bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all duration-300">
-                            Add to Cart
-                        </button>
+                        <button onclick="addToCart({id: 'solar-flare', name: 'Solar Flare Flame', price: 2999, image: 'https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&q=80'})" class="bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all">Add to Cart</button>
                     </div>
                 </div>
-
-                <!-- Product Card 3 -->
-                <div class="product-card group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:shadow-red-500/10" data-category="acoustic">
+                <!-- Card 3 -->
+                <div class="product-card group relative bg-white/5 border border-white/10 rounded-2xl p-6 transition-all duration-500 hover:scale-[1.03]" data-category="acoustic" data-name="Celestial Acoustic">
                     <div class="relative aspect-square overflow-hidden rounded-xl mb-8 bg-gradient-to-tr from-red-500/5 to-transparent flex items-center justify-center">
-                        <div class="absolute inset-0 bg-red-500/5 blur-3xl rounded-full scale-75 group-hover:scale-110 transition-transform duration-700"></div>
-                        <img src="https://images.unsplash.com/photo-1525201548942-d8b8967d0f5c?auto=format&fit=crop&q=80" alt="Celestial Acoustic" class="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <img src="https://images.unsplash.com/photo-1525201548942-d8b8967d0f5c?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                     </div>
                     <h3 class="text-white text-xl font-bold mb-2">Celestial Acoustic</h3>
-                    <p class="text-gray-400 text-sm mb-6">Solid spruce top with revolutionary carbon fiber bracing.</p>
                     <div class="flex items-center justify-between border-t border-white/10 pt-6">
                         <span class="text-red-500 font-bold text-2xl">$5,200</span>
-                        <button onclick="addToCart({id: 'celestial-acoustic', name: 'Celestial Acoustic', price: 5200, image: 'https://images.unsplash.com/photo-1525201548942-d8b8967d0f5c?auto=format&fit=crop&q=80'})" class="bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all duration-300">
-                            Add to Cart
-                        </button>
+                        <button onclick="addToCart({id: 'celestial-acoustic', name: 'Celestial Acoustic', price: 5200, image: 'https://images.unsplash.com/photo-1525201548942-d8b8967d0f5c?auto=format&fit=crop&q=80'})" class="bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all">Add to Cart</button>
                     </div>
                 </div>
             </div>
-
-            <div class="text-center mt-16">
-                <a href="shop.html" class="inline-block px-10 py-4 border border-white/10 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-all duration-300">View All Models</a>
-            </div>
         </div>
     </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const tabs = document.querySelectorAll('.tab-btn');
-            const products = document.querySelectorAll('.product-card');
+    <div id="footer"></div>
 
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    const category = tab.dataset.category;
-
-                    tabs.forEach(t => {
-                        t.classList.remove('bg-red-500', 'text-white', 'shadow-lg', 'shadow-red-500/20');
-                        t.classList.add('bg-white/5', 'text-gray-400', 'border-white/10');
-                    });
-                    tab.classList.add('bg-red-500', 'text-white', 'shadow-lg', 'shadow-red-500/20');
-                    tab.classList.remove('bg-white/5', 'text-gray-400', 'border-white/10');
-
-                    products.forEach(product => {
-                        product.classList.add('transition-all', 'duration-500');
-                        if (category === 'all' || product.dataset.category === category) {
-                            product.classList.remove('hidden');
-                            setTimeout(() => {
-                                product.classList.remove('opacity-0', 'scale-95');
-                            }, 10);
-                        } else {
-                            product.classList.add('opacity-0', 'scale-95');
-                            setTimeout(() => {
-                                product.classList.add('hidden');
-                            }, 500);
-                        }
-                    });
-                });
-            });
-
-            // Set default view (Electric)
-            const defaultTab = document.querySelector('.tab-btn[data-category="electric"]');
-            if (defaultTab) defaultTab.click();
-        });
-    </script>
-
-    <section id="vision" class="vision">
-        <div class="vision-overlay"></div>
-        <div class="vision-content glass-card">
-            <h2>Your Vision. Our Craft.</h2>
-            <p>From wood selection to custom inlay work, build the instrument you've always dreamed of. No limits, only pure craftsmanship.</p>
-            <div class="hero-btns">
-                <a href="contact.html" class="btn primary-btn">Start Custom Build</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer" id="footer-placeholder"></footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/cart.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/ui.js"></script>
+    <script src="assets/js/products.js"></script>
+    <style>
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in-up { animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+        .mask-linear-to-l { mask-image: linear-gradient(to left, black 20%, transparent 80%); -webkit-mask-image: linear-gradient(to left, black 20%, transparent 80%); }
+    </style>
 </body>
 </html>
