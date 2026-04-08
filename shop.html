@@ -12,61 +12,168 @@
 <body>
     <div id="header-placeholder"></div>
 
-    <section class="hero secondary-hero">
-        <div class="hero-content">
-            <h1>THE <span>VAULT</span></h1>
-            <p>Your journey to perfect tone starts here. Explore our flagship models.</p>
+    <section class="relative min-h-[50vh] flex flex-col items-center justify-center text-center px-6 pt-20 overflow-hidden bg-black">
+        <div class="relative z-10">
+            <h1 class="text-6xl md:text-8xl font-['Syncopate'] font-bold mb-6 tracking-tighter leading-none">THE <span class="text-transparent" style="-webkit-text-stroke: 1px #fff;">VAULT</span></h1>
+            <p class="text-white/50 text-xl max-w-2xl mx-auto">Your journey to perfect tone starts here. Explore our flagship models.</p>
         </div>
+        <!-- Background Gradient -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(220,38,38,0.1),transparent_70%)]"></div>
     </section>
 
-    <section class="shop-page-content">
-        <div class="container py-5">
-            <h2 class="section-title">The <span>Collection</span></h2>
-            <div class="shop-grid">
-                <div class="product-card">
-                    <div class="product-badge">Limited</div>
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1550291652-6ea9114a47b1?auto=format&fit=crop&w=600&q=80');"></div>
-                    <h3>The Obsidian Strat</h3>
-                    <p>Matte black finish, EMG active pickups.</p>
-                    <div class="price">$3,499</div>
-                    <button class="btn-buy">Add to Cart</button>
+    <!-- Shop Content Section -->
+    <section class="relative bg-black py-20 px-6 lg:px-12 overflow-hidden">
+        <!-- Extra Premium Touch: Soft Red Glows -->
+        <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-red-900/10 blur-[120px] rounded-full z-0"></div>
+        <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-red-900/10 blur-[120px] rounded-full z-0"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3">
+                    <h2 class="text-white text-3xl md:text-4xl font-semibold">Best Prices</h2>
+                    <div class="w-2 h-2 rounded-full bg-red-500 mt-2"></div>
                 </div>
-                <div class="product-card">
-                    <div class="product-badge">New</div>
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&w=600&q=80');"></div>
-                    <h3>Solar Flare Flame</h3>
-                    <p>AAA Flame maple top, Floyd Rose system.</p>
-                    <div class="price">$2,999</div>
-                    <button class="btn-buy">Add to Cart</button>
+                <p class="text-gray-400 mt-3 max-w-xl">Premium instruments for professional artists. Explore our curated collections across all categories.</p>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="flex flex-wrap items-center gap-3 mb-12">
+                <button class="px-6 py-2.5 bg-red-500 text-white rounded-full text-sm font-medium transition-all duration-300 shadow-lg shadow-red-500/20">Electric</button>
+                <button class="px-6 py-2.5 bg-white/5 backdrop-blur-md border border-white/10 text-gray-300 rounded-full text-sm font-medium hover:bg-white/10 transition-all duration-300">Acoustic</button>
+                <button class="px-6 py-2.5 bg-white/5 backdrop-blur-md border border-white/10 text-gray-300 rounded-full text-sm font-medium hover:bg-white/10 transition-all duration-300">Drums</button>
+                <button class="px-6 py-2.5 bg-white/5 backdrop-blur-md border border-white/10 text-gray-300 rounded-full text-sm font-medium hover:bg-white/10 transition-all duration-300">Orchestral</button>
+                <button class="px-6 py-2.5 bg-white/5 backdrop-blur-md border border-white/10 text-gray-300 rounded-full text-sm font-medium hover:bg-white/10 transition-all duration-300">Other</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product Card 1 -->
+                <div class="group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-5 transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:shadow-red-500/10">
+                    <div class="relative aspect-[4/5] overflow-hidden rounded-xl mb-6 bg-gradient-to-tr from-red-500/5 to-transparent flex items-center justify-center">
+                        <!-- Subtle glow behind image -->
+                        <div class="absolute inset-0 bg-red-500/5 blur-3xl rounded-full scale-75 group-hover:scale-110 transition-transform duration-700"></div>
+                        <img src="https://images.unsplash.com/photo-1550291652-6ea9114a47b1?auto=format&fit=crop&q=80" alt="The Obsidian Strat" class="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute top-3 right-3 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider">Limited</div>
+                    </div>
+                    <h3 class="text-white font-medium text-lg mb-1">The Obsidian Strat</h3>
+                    <div class="flex items-center gap-1 mb-3">
+                        <i class="bi bi-star-fill text-red-500 text-xs"></i>
+                        <i class="bi bi-star-fill text-red-500 text-xs"></i>
+                        <i class="bi bi-star-fill text-red-500 text-xs"></i>
+                        <i class="bi bi-star-fill text-red-500 text-xs"></i>
+                        <i class="bi bi-star-fill text-red-500 text-xs"></i>
+                        <span class="text-gray-500 text-[10px] ml-1">(48 Reviews)</span>
+                    </div>
+                    <div class="flex flex-col gap-4 mt-auto">
+                        <div class="flex items-center justify-between">
+                            <span class="text-red-400 font-semibold text-xl">$3,499</span>
+                            <div class="flex items-center gap-1">
+                                <i class="bi bi-star-fill text-red-500 text-[10px]"></i>
+                                <span class="text-white text-[10px] font-bold">4.9</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-red-500 text-white py-2.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-600 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/30">
+                            Add to Cart
+                        </button>
+                    </div>
                 </div>
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1516924962500-2b4b3b99ea02?auto=format&fit=crop&w=600&q=80');"></div>
-                    <h3>Vintage Amber LP</h3>
-                    <p>Chambered mahogany, custom wound humbuckers.</p>
-                    <div class="price">$3,899</div>
-                    <button class="btn-buy">Add to Cart</button>
+
+                <!-- Product Card 2 -->
+                <div class="group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-5 transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:shadow-red-500/10">
+                    <div class="relative aspect-[4/5] overflow-hidden rounded-xl mb-6 bg-gradient-to-tr from-red-500/5 to-transparent flex items-center justify-center">
+                        <div class="absolute inset-0 bg-red-500/5 blur-3xl rounded-full scale-75 group-hover:scale-110 transition-transform duration-700"></div>
+                        <img src="https://images.unsplash.com/photo-1564186763535-ebb21ef5277f?auto=format&fit=crop&q=80" alt="Solar Flare Flame" class="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute top-3 right-3 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider">New</div>
+                    </div>
+                    <h3 class="text-white font-medium text-lg mb-1">Solar Flare Flame</h3>
+                    <div class="flex items-center gap-1 mb-3">
+                        <i class="bi bi-star-fill text-red-500 text-xs"></i>
+                        <i class="bi bi-star-fill text-red-500 text-xs"></i>
+                        <i class="bi bi-star-fill text-red-500 text-xs"></i>
+                        <i class="bi bi-star-fill text-red-500 text-xs"></i>
+                        <i class="bi bi-star-half text-red-500 text-xs"></i>
+                        <span class="text-gray-500 text-[10px] ml-1">(32 Reviews)</span>
+                    </div>
+                    <div class="flex flex-col gap-4 mt-auto">
+                        <div class="flex items-center justify-between">
+                            <span class="text-red-400 font-semibold text-xl">$2,999</span>
+                            <div class="flex items-center gap-1">
+                                <i class="bi bi-star-fill text-red-500 text-[10px]"></i>
+                                <span class="text-white text-[10px] font-bold">4.8</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-red-500 text-white py-2.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-600 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/30">
+                            Add to Cart
+                        </button>
+                    </div>
                 </div>
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1525201548942-d8b8967d0f5c?auto=format&fit=crop&w=600&q=80');"></div>
-                    <h3>Celestial Acoustic</h3>
-                    <p>Solid spruce top, Carbon fiber bracing.</p>
-                    <div class="price">$5,200</div>
-                    <button class="btn-buy">Add to Cart</button>
+
+                <!-- Product Card 3 -->
+                <div class="group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-5 transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:shadow-red-500/10">
+                    <div class="relative aspect-[4/5] overflow-hidden rounded-xl mb-6 bg-gradient-to-tr from-red-500/5 to-transparent flex items-center justify-center">
+                        <div class="absolute inset-0 bg-red-500/5 blur-3xl rounded-full scale-75 group-hover:scale-110 transition-transform duration-700"></div>
+                        <img src="https://images.unsplash.com/photo-1516924962500-2b4b3b99ea02?auto=format&fit=crop&q=80" alt="Vintage Amber LP" class="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <h3 class="text-white font-medium text-lg mb-1">Vintage Amber LP</h3>
+                    <div class="flex items-center gap-1 mb-3">
+                        <i class="bi bi-star-fill text-red-500 text-xs"></i>
+                        <i class="bi bi-star-fill text-red-500 text-xs"></i>
+                        <i class="bi bi-star-fill text-red-500 text-xs"></i>
+                        <i class="bi bi-star-fill text-red-500 text-xs"></i>
+                        <i class="bi bi-star-fill text-red-500 text-xs"></i>
+                        <span class="text-gray-500 text-[10px] ml-1">(56 Reviews)</span>
+                    </div>
+                    <div class="flex flex-col gap-4 mt-auto">
+                        <div class="flex items-center justify-between">
+                            <span class="text-red-400 font-semibold text-xl">$3,899</span>
+                            <div class="flex items-center gap-1">
+                                <i class="bi bi-star-fill text-red-500 text-[10px]"></i>
+                                <span class="text-white text-[10px] font-bold">5.0</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-red-500 text-white py-2.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-600 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/30">
+                            Add to Cart
+                        </button>
+                    </div>
                 </div>
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=600&q=80');"></div>
-                    <h3>Midnight Sea P</h3>
-                    <p>Deep blue finish, active Piezo bridge.</p>
-                    <div class="price">$2,799</div>
-                    <button class="btn-buy">Add to Cart</button>
+
+                <!-- Product Card 4 -->
+                <div class="group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-5 transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:shadow-red-500/10">
+                    <div class="relative aspect-[4/5] overflow-hidden rounded-xl mb-6 bg-gradient-to-tr from-red-500/5 to-transparent flex items-center justify-center">
+                        <div class="absolute inset-0 bg-red-500/5 blur-3xl rounded-full scale-75 group-hover:scale-110 transition-transform duration-700"></div>
+                        <img src="https://images.unsplash.com/photo-1525201548942-d8b8967d0f5c?auto=format&fit=crop&q=80" alt="Celestial Acoustic" class="relative z-10 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute top-3 right-3 bg-[#ff2d55] text-white text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider">Best Seller</div>
+                    </div>
+                    <h3 class="text-white font-medium text-lg mb-1">Celestial Acoustic</h3>
+                    <div class="flex items-center gap-1 mb-3">
+                        <i class="bi bi-star-fill text-red-500 text-xs"></i>
+                        <i class="bi bi-star-fill text-red-500 text-xs"></i>
+                        <i class="bi bi-star-fill text-red-500 text-xs"></i>
+                        <i class="bi bi-star-fill text-red-500 text-xs"></i>
+                        <i class="bi bi-star-fill text-red-500 text-xs"></i>
+                        <span class="text-gray-500 text-[10px] ml-1">(120 Reviews)</span>
+                    </div>
+                    <div class="flex flex-col gap-4 mt-auto">
+                        <div class="flex items-center justify-between">
+                            <span class="text-red-400 font-semibold text-xl">$5,200</span>
+                            <div class="flex items-center gap-1">
+                                <i class="bi bi-star-fill text-red-500 text-[10px]"></i>
+                                <span class="text-white text-[10px] font-bold">4.9</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-red-500 text-white py-2.5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-600 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/30">
+                            Add to Cart
+                        </button>
+                    </div>
                 </div>
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1588611135245-c49513364273?auto=format&fit=crop&w=600&q=80');"></div>
-                    <h3>Titanium J</h3>
-                    <p>Titanium neck, Aerospace-grade carbon body.</p>
-                    <div class="price">$6,500</div>
-                    <button class="btn-buy">Add to Cart</button>
-                </div>
+            </div>
+            
+            <!-- Bottom CTA -->
+            <div class="mt-16 text-center">
+                <button class="bg-red-500 text-white px-8 py-3 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-red-600 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/40">
+                    Explore All Instruments
+                </button>
             </div>
         </div>
     </section>
